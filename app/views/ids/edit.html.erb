@@ -1,0 +1,17 @@
+
+<h1>아이디 수정</h1>
+<%= form_with model: @id do |form| %>
+
+<div class="field">
+  <%= form.label :idImage %>
+  <%= form.text_field :idImage%>
+</div>
+
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>
+
+<%= link_to 'Show', @id %> |
+<%= link_to 'Back', ids_path %>

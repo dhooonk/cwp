@@ -56,6 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'carrierwave'
 gem 'carrierwave-base64'
-gem 'rmagick' # have any error? see this link: http://stackoverflow.com/a/5207041
+#gem 'rmagick' # have any error? see this link: http://stackoverflow.com/a/5207041
 gem 'rails_db'
 gem 'devise'

@@ -1,0 +1,12 @@
+<h1>새 프로그램</h1>
+
+<form action="/programs" method="post" data-remote="true">
+  <input type="text" name="programName" placeholder="프로그램 명">
+  <input type="text" name="programStartDay" placeholder="시작날짜">
+  <input type="text" name="programEndDay" placeholder="종강날짜">
+  <input type="text" name="programDoingDay" placeholder="진행요일">
+  <input type="text" name="programDoingTime" placeholder="진행시간">
+  <input type="submit" name="commit">
+</form>
+
+<%= link_to 'Back', programs_path %>

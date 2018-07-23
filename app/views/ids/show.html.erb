@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>번호</th>
+      <th>이미지</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @id.id %></td>
+        <td><%= @id.image %></td>
+      </tr>
+  </tbody>
+</table>
+
+<%= link_to '수정', edit_id_path(@id) %> |
+<%= link_to '뒤로', ids_path %>
