@@ -1,17 +1,61 @@
+<div class="facerecognition">
+<img src = "\assets\facerecognition.PNG" id="faceIcon">
+<h1>출석체크를 하겠습니다 </h1>
+<h1>얼굴을 가까이 해주세요 </h1>
 
-<h1>아이디 수정</h1>
-<%= form_with model: @id do |form| %>
 
-<div class="field">
-  <%= form.label :idImage %>
-  <%= form.text_field :idImage%>
+  <div id="my_camera" style="width:640px; height:480px;"></div>
+
+  <input type=button value="사진촬영" onClick="take_snapshot()">
+
+  <script language="JavaScript">
+  function take_snapshot(){
+      Webcam.snap(function(data_uri) {
+          id = $('[id*="_image"]');
+
+          if (id.length) {
+              id.val(data_uri);
+          }
+
+          document.getElementById('my_result').innerHTML = '<img src="' + data_uri + '"/>';
+      });
+  }
+  $(document).ready(function() {
+      if ($("#my_camera").length) {
+          Webcam.set({
+              width: 640,
+              height: 480,
+              image_format: 'jpeg',
+              jpeg_quality: 100
+          });
+
+          Webcam.attach('#my_camera');
+      }
+  });
+
+  </script>
+
+    <!-- <%= form_for(@id) do |f| %>
+      <div class="field">
+        <%= f.hidden_field :image %>
+        <%= f.label :image %>: <br />
+        <div id="my_result"> 캡쳐한 화면이 이곳에 나타납니다.</div>
+      </div>
+
+
+      <form action="/ids" method="post" data-remote="true">
+        <input type="submit" name="commit">
+      </form>
+
+
+    <% end %> -->
+
+    <form action="/ids" method="post" data-remote="true">
+
+      <input type="hidden" name="image" id="id_image">
+      <div id="my_result"> 캡쳐한 화면이 이곳에 나타납니다.</div>
+      <input type="submit" name="commit">
+    </form>
+
+
 </div>
-dsfjdsklfadsbljkfadsjlfkadshldashfjlkdsafhljadsaskfhl
-
-<div class="actions">
-  <%= form.submit %>
-</div>
-<% end %>
-
-<%= link_to 'Show', @id %> |
-<%= link_to 'Back', ids_path %>
