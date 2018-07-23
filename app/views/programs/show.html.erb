@@ -1,27 +1,55 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>프로그램 명</th>
-      <th>시작날짜</th>
-      <th>종강날짜</th>
-      <th>진행요일</th>
-      <th>진행시간</th>
-    <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>프로그램 명</th>
+              <th>시작날짜</th>
+              <th>종강날짜</th>
+              <th>진행요일</th>
+              <th>진행시간</th>
+            <th colspan="3"></th>
+            </tr>
+          </thead>
 
-  <tbody>
-      <tr>
-        <td><%= @program.name %></td>
-        <td><%= @program.startDay %></td>
-        <td><%= @program.endDay %></td>
-        <td><%= @program.doingDay %></td>
-        <td><%= @program.doingTime %></td>
-      </tr>
-  </tbody>
-</table>
+          <tbody>
+              <tr>
+                <td><%= @program.name %></td>
+                <td><%= @program.startDay %></td>
+                <td><%= @program.endDay %></td>
+                <td><%= @program.doingDay %></td>
+                <td><%= @program.doingTime %></td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="container">
+      <h1>등록 회원 정보</h1>
+    </div>
+    <div class="layout">
+      <% @list.each do |each_custom| %>
+          <% Customer.where(:id => each_custom.customer_id).each do |custom| %>
+            <div class="card">
+                <img class="card-img-top" id="temp" src="\assets\facerecognition.PNG" alt="Card image cap">
+                <div class="card-block ">
+                    <h4 class="card-title"><%= custom.custom_name %></h4>
+                    <p class="card-text">
+                        <%= custom.phone %>
+                        <%= custom.etc %>
+                    </p>
+                </div>
+            </div>
+    </div>
 
-<%= link_to '수정', edit_program_path(@program) %> |
-<%= link_to '뒤로', programs_path %>
+
+
+          <% end %>
+      <% end %>
+    </div>
+
+    <%= link_to '수정', edit_program_path(@program) %> |
+    <%= link_to '뒤로', programs_path %>
+
+</div>
