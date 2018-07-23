@@ -25,7 +25,7 @@
         <td><%= program.endDay %></td>
         <td><%= program.doingDay %></td>
         <td><%= program.doingTime %></td>
-        <td><%= link_to '보기', program %></td>
+        <td><%= link_to '명단/출석', program %></td>
         <td><%= link_to '수정', edit_program_path(program) %></td>
         <td><%= link_to '삭제', program, method: :delete, data: { confirm: '정말로 프로그램을 삭제하시겠습니까?' } %></td>
       </tr>

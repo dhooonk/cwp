@@ -22,6 +22,8 @@ class ProgramsController < ApplicationController
 
     def show
       @program=Program.find(params[:id])
+      @list = CustomProgram.where(:program_id => params[:id])
+
     end
 
     def edit
