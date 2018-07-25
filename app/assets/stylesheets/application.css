@@ -13,11 +13,28 @@
  *= require_tree .
  *= require_self
  */
+ @import url(http://cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css);
 
+ *{
+   font-family: 'Nanum Barun Gothic';
+ }
+
+
+ #main{
+   margin-top: 3rem;
+ }
 .facerecognition{
   text-align: center;
 }
 #faceIcon{
   width:150px;
   height: auto;
+}
+#my_camera{
+   margin: 0 auto;
+}
+
+
+#link{
+  padding-left: 10rem;
 }

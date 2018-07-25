@@ -14,7 +14,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
-    <script src="webcam.js"></script>
+<!-- slick -->
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- <script src="webcam.js"></script> -->
     <style>
     li {
       list-style :none
@@ -35,6 +40,9 @@
         <a class="nav-link" href="/">메인 <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
+        <a class="nav-link" href="/notices">공지사항 <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="/programs">프로그램 <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
@@ -43,33 +51,33 @@
       <li class="nav-item active">
         <a class="nav-link" href="/ids">출석체크 <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="검색" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
     </form>
     <% if user_signed_in? %>
-      <li> <%= current_user.name %>님 </a> </li>
-      <li> <a href="/mypage/index/<%= current_user.id%>">마이페이지</a> </li>
-      <li> <%= link_to '로그아웃', destroy_user_session_path, method: :delete %> </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= current_user.name %> 님
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/mypage/index/<%= current_user.id%>">마이페이지</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/users/sign_out" data-method="delete">로그아웃</a>
+      </div>
+    </li>
     <% else %>
-      <li> <%= link_to '로그인',new_user_session_path %> </li>
+      <li><%= link_to '로그인',new_user_session_path %></li>
       <li><%= link_to '회원가입',new_user_registration_path %></li>
     <%end%>
   </div>
 </nav>
 
     <%= yield %>
+
+
   </body>
+
 </html>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>공지사항</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>번호</th>
+      <th>제목</th>
+      <th>보기</th>
+      <th>수정</th>
+      <th>삭제</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notices.each do |notice| %>
+      <tr>
+        <td><%= notice.id %></td>
+        <td><%= notice.title %></td>
+        <td><%= link_to '보기', notice %></td>
+        <td><%= link_to '수정', edit_notice_path(notice) %></td>
+        <td><%= link_to '삭제', notice, method: :delete, data: { confirm: '정말로 게시물을 삭제하시겠습니까?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '새로운 프로그램 작성', new_notice_path %>

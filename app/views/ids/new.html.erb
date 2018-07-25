@@ -4,7 +4,6 @@
 <h1>얼굴을 가까이 해주세요 </h1>
 
 
-  <%= form_for(@id) do |f| %>
   <div id="my_camera" style="width:640px; height:480px;"></div>
 
   <input type=button value="사진촬영" onClick="take_snapshot()">
@@ -27,7 +26,7 @@
               width: 640,
               height: 480,
               image_format: 'jpeg',
-              jpeg_quality: 90
+              jpeg_quality: 100
           });
 
           Webcam.attach('#my_camera');
@@ -36,18 +35,27 @@
 
   </script>
 
-  <div class="field">
-    <%= f.hidden_field :image %>
-    <%= f.label :image %>: <br />
-    <div id="my_result"> 캡쳐한 화면이 이곳에 나타납니다.</div>
-  </div>
+    <!-- <%= form_for(@id) do |f| %>
+      <div class="field">
+        <%= f.hidden_field :image %>
+        <%= f.label :image %>: <br />
+        <div id="my_result"> 캡쳐한 화면이 이곳에 나타납니다.</div>
+      </div>
 
 
-  <form action="/ids" method="post" data-remote="true">
-    <input type="submit" name="commit">
-  </form>
+      <form action="/ids" method="post" data-remote="true">
+        <input type="submit" name="commit">
+      </form>
 
 
-    <% end %>
+    <% end %> -->
+
+    <form action="/ids" method="post" data-remote="true">
+
+      <input type="hidden" name="image" id="id_image">
+      <div id="my_result"> 캡쳐한 화면이 이곳에 나타납니다.</div>
+      <input type="submit" name="commit">
+    </form>
+
 
 </div>

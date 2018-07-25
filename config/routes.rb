@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :programs
   resources :ids
+  resources :notices
 
   get '/members', to: 'index#members'
   get '/attendance', to: 'index#attendance'
