@@ -59,3 +59,5 @@ gem 'carrierwave-base64'
 #gem 'rmagick' # have any error? see this link: http://stackoverflow.com/a/5207041
 gem 'rails_db'
 gem 'devise'
+gem 'fog'
+gem 'fog-azure'

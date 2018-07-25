@@ -35,6 +35,9 @@
         <a class="nav-link" href="/">메인 <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
+        <a class="nav-link" href="/notices">공지사항 <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="/programs">프로그램 <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
@@ -43,33 +46,32 @@
       <li class="nav-item active">
         <a class="nav-link" href="/ids">출석체크 <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="검색" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
     </form>
     <% if user_signed_in? %>
-      <li> <%= current_user.name %>님 </a> </li>
-      <li> <a href="/mypage/index/<%= current_user.id%>">마이페이지</a> </li>
-      <li> <%= link_to '로그아웃', destroy_user_session_path, method: :delete %> </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= current_user.name %> 님
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/mypage/index/<%= current_user.id%>">마이페이지</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/users/sign_out" data-method="delete">로그아웃</a>
+      </div>
+    </li>
     <% else %>
-      <li> <%= link_to '로그인',new_user_session_path %> </li>
+      <li><%= link_to '로그인',new_user_session_path %></li>
       <li><%= link_to '회원가입',new_user_registration_path %></li>
     <%end%>
   </div>
 </nav>
 
     <%= yield %>
+
   </body>
+
 </html>
