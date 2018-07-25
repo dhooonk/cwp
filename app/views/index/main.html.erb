@@ -25,7 +25,7 @@
 <div class="container" id="main">
   <div class="row">
     <div class="col-sm-4">
-      <table class="table table-hover">
+      <table class="table">
         <h4>공지사항</h4>
         <tbody>
           <% @notices.each do |notice| %>
@@ -37,18 +37,24 @@
         </tbody>
       </table>
     </div>
+
     <div class="col-sm-4">
-
-
       <h4>오늘의 프로그램</h4>
-      <% @programs.each do |program| %>
-      <div class="slide" id"slide">
-        <ul>
+      <div class="programSlide">
+        <% @programs.each do |program| %>
         <li><%=program.name%></li>
-        </ul>
+        <% end %>
       </div>
-      <% end %>
 
+      <script>
+      $(document).ready(function(){
+      $('.programSlide').slick({
+        vertical: true,
+        autoplay: true,
+        arrows: false,
+        });
+      });
+      </script>
           <!-- <h4>오늘의 프로그램</h4>
           <% @programs.each do |program| %>
           <div class="slide">
@@ -58,7 +64,6 @@
           </div>
           <% end %> -->
     </div>
-
 
     <div class="col-sm-4">
       <button type="button" class="btn btn-warning btn-lg btn-block"><%=Time.now.month %>월 프로그램 안내</button>
@@ -89,7 +94,6 @@
         </button>
 
         <div class="dropdown-menu" >
-          <a class="dropdown-item" href="http://">가족사이트 바로가기</a>
           <a class="dropdown-item" href="http://www.jongno.go.kr">종로구청</a>
           <a class="dropdown-item" href="http://www.kaswcs.or.kr">한국노인종합복지관협회</a>
           <a class="dropdown-item" href="http://www.saswc.or.kr">서울시노인종합복지관협회</a>
