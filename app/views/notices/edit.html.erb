@@ -1,6 +1,11 @@
 
 <h1>공지 수정</h1>
-<%= form_with model: @notice do |form| %>
+<form action="/notice/<%=@notice.id%>" method="patch" data-remote="true">
+  <input type="text" name="title" placeholder="제목">
+  <input type="text" name="content" placeholder="내용">
+  <input type="submit" name="commit">
+</form>
+<!-- <%= form_with model: @notice do |form| %>
 <div class="field">
   <%= form.label :title %>
   <%= form.text_field :title%>
@@ -14,7 +19,7 @@
 <div class="actions">
   <%= form.submit %>
 </div>
-<% end %>
+<% end %> -->
 
 <%= link_to 'Show', @notice %> |
 <%= link_to 'Back', notices_path %>
