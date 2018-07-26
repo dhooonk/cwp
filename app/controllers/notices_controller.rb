@@ -2,6 +2,8 @@ class NoticesController < ApplicationController
 
       def index
         @notices = Notice.all
+
+        @programs = Program.all
       end
 
       def new
@@ -30,7 +32,9 @@ class NoticesController < ApplicationController
         @notice = Notice.find(params[:id])
         @notice.title = params[:title]
         @notice.content = params[:content]
-        @notice.save
+        @notice.update_attributes(notice_params)
+
+        redirect_to notices_path
       end
 
       def destroy
@@ -38,5 +42,9 @@ class NoticesController < ApplicationController
         @notice.destroy
 
         redirect_to notices_path
+      end
+
+      def notice_params
+        params.require(:notice).permit(:title, :content)
       end
 end

@@ -1,32 +1,88 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <p id="notice"><%= notice %></p>
 
-<h1>공지사항</h1>
+    <h4>공지사항</h4>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>번호</th>
-      <th>제목</th>
-      <th>보기</th>
-      <th>수정</th>
-      <th>삭제</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <hr />
 
-  <tbody>
-    <% @notices.each do |notice| %>
-      <tr>
-        <td><%= notice.id %></td>
-        <td><%= notice.title %></td>
-        <td><%= link_to '보기', notice %></td>
-        <td><%= link_to '수정', edit_notice_path(notice) %></td>
-        <td><%= link_to '삭제', notice, method: :delete, data: { confirm: '정말로 게시물을 삭제하시겠습니까?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <form>
+      <div class="form-row align-items-center">
+        <div class="col-2">
+          <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>선택</option>
+            <option value="1">제목</option>
+            <option value="2">글쓴이</option>
+            <option value="3">글내용</option>
+          </select>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" placeholder="검색">
+        </div>
+        <div class="col-1">
+          <button type="submit" class="btn btn-warning">검색</button>
+        </div>
+      </div>
+    </form>
 
-<br>
 
-<%= link_to '새로운 프로그램 작성', new_notice_path %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>작성시간</th>
+          <th>보기</th>
+          <th>수정</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @notices.each do |notice| %>
+          <tr>
+            <td><%= notice.id %></td>
+            <td><%= notice.title %></td>
+            <td>관리자</td>
+            <td><%= notice.created_at.strftime("%Y-%m-%d") %></td>
+            <td><%= link_to '보기', notice %></td>
+            <td><%= link_to '수정', edit_notice_path(notice) %></td>
+            <td><%= link_to '삭제', notice, method: :delete, data: { confirm: '정말로 게시물을 삭제하시겠습니까?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to '새로운 프로그램 작성', new_notice_path %>
+  </div>
+
+  <div class="col-4">
+    <div class="todayProgram">
+      <div class="todayProgramTitle">
+        <h4>오늘의 프로그램</h4>
+      </div>
+
+      <div class="todayProgramContent">
+        <% @programs.each do |program| %>
+          <div class="card">
+            <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%=program.name%></h5>
+              <p class="card-text">
+              <strong>진행요일</strong> : <%=program.doingDay%><br />
+              <strong>진행시간</strong> : <%=program.doingTime%>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  </div>
+  </div>
+</div>
