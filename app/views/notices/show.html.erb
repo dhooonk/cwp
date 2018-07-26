@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>제목</th>
+            <th>내용</th>
+          </tr>
+        </thead>
+
+          <tbody>
+              <tr>
+                <td><%= @notice.title %></td>
+                <td><%= @notice.content %></td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+
+    <%= link_to '수정', edit_notice_path(@notice) %> |
+    <%= link_to '뒤로', notices_path %>
+
+</div>

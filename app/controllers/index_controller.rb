@@ -1,10 +1,14 @@
 class IndexController < ApplicationController
 
   def main
-  end
+    @notices = Notice.all.order('created_at DESC').limit(5)
 
-  def memebers
-    @users=User.all
+    @programs = Program.all.limit(5)
   end
+  #
+  # def members
+  #   @users=User.all
+  #   @custom = Customer.all
+  # end
 
 end

@@ -1,0 +1,9 @@
+<h1>새 공지</h1>
+
+<form action="/notices" method="post" data-remote="true">
+  <input type="text" name="title" placeholder="제목">
+  <input type="text" name="content" placeholder="내용">
+  <input type="submit" name="commit">
+</form>
+
+<%= link_to 'Back', notices_path %>
