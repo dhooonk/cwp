@@ -1,13 +1,15 @@
 class NoticesController < ApplicationController
 
       def index
-        @notices = Notice.all
+        @notices = Notice.all.order('created_at DESC')
 
         @programs = Program.all
       end
 
       def new
         @notice = Notice.new
+
+        @programs = Program.all
       end
 
       def create
@@ -22,10 +24,14 @@ class NoticesController < ApplicationController
       def show
         @notice = Notice.find(params[:id])
 
+        @programs = Program.all
+
       end
 
       def edit
         @notice = Notice.find(params[:id])
+
+        @programs = Program.all
       end
 
       def update
