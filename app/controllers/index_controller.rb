@@ -5,9 +5,10 @@ class IndexController < ApplicationController
 
     @programs = Program.all.limit(5)
   end
-
-  def members
-    @users=User.all
-  end
+  #
+  # def members
+  #   @users=User.all
+  #   @custom = Customer.all
+  # end
 
 end
