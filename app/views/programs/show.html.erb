@@ -28,19 +28,21 @@
     <div class="container">
       <h1>등록 회원 정보</h1>
     </div>
-    <div class="layout">
-      <% @list.each do |each_custom| %>
-          <% Customer.where(:id => each_custom.customer_id).each do |custom| %>
-            <div class="card">
-                <img class="card-img-top" id="temp" src="\assets\facerecognition.PNG" alt="Card image cap">
-                <div class="card-block ">
-                    <h4 class="card-title"><%= custom.custom_name %></h4>
-                    <p class="card-text">
-                        <%= custom.phone %>
-                        <%= custom.etc %>
-                    </p>
+    <div class="container">      
+        <div class="layout">
+          <% @list.each do |each_custom| %>
+              <% Customer.where(:id => each_custom.customer_id).each do |custom| %>
+                <div class="card">
+                    <img class="card-img-top" id="temp" src="\assets\facerecognition.PNG" alt="Card image cap">
+                    <div class="card-block ">
+                        <h4 class="card-title"><%= custom.custom_name %></h4>
+                        <p class="card-text">
+                            <%= custom.phone %>
+                            <%= custom.etc %>
+                        </p>
+                    </div>
                 </div>
-            </div>
+        </div>
     </div>
 
 

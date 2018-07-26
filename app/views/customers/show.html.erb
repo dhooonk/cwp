@@ -1,0 +1,46 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">번호</th>
+      <th scope="col">이름</th>
+      <th scope="col">연락처</th>
+      <th scope="col">비고</th>
+    </tr>
+  </thead>
+  <tbody>
+        <tr>
+              <th scope="row"> <%= @custom.id %></th>
+              <td><%= @custom.custom_name %></td>
+              <td><%= @custom.phone %></td>
+              <td><%= @custom.etc %></td>
+        </tr>
+  </tbody>
+</table>
+
+<div class="container">
+  <h1>등록한 프로그램</h1>
+</div>
+
+<div class="container">
+  <div class="layout">
+    <% @list.each do |each_program| %>
+        <% Program.where(:id => each_program.program_id).each do |program| %>
+          <div class="card">
+              <img class="card-img-top" id="temp" src="\assets\facerecognition.PNG" alt="Card image cap">
+              <div class="card-block ">
+                  <h4 class="card-title"><%= program.name %></h4>
+                  <p class="card-text">
+                      <%= program.startDay %>
+                      <%= program.endDay %>
+                      <%= program.doingDay %>
+                      <%= program.doingTime %>
+                  </p>
+              </div>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to '수정', edit_customer_path(@custom) %> |
+<%= link_to '뒤로', customer_path %>

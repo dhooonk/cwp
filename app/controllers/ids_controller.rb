@@ -27,7 +27,9 @@ class IdsController < ApplicationController
       def update
         @id=Id.find(params[:id])
         @id.image=params[:image]
-        @id.update
+        @id.update_attributes(image_params)
+
+        redirect_to ids_path
       end
 
       def destroy
@@ -35,5 +37,9 @@ class IdsController < ApplicationController
         @id.destroy
 
         redirect_to ids_path
+      end
+
+      def image_params
+        params.require(:id).permit(:image)
       end
 end

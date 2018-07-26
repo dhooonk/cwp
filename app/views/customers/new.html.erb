@@ -1,0 +1,10 @@
+<h1>새 회원</h1>
+
+<form action="/customers" method="post" data-remote="true">
+  <input type="text" name="customerName" placeholder="이름">
+  <input type="integer" name="customerPhone" placeholder="연락처">
+  <input type="string" name="customerETC" placeholder="특이사항">
+  <input type="submit" name="commit">
+</form>
+
+<%= link_to 'Back', customers_path %>
