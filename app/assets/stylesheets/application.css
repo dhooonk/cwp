@@ -19,7 +19,7 @@
    font-family: 'Nanum Barun Gothic';
  }
 
- hr {
+ #hr {
     background-color: #f69129 !important;
     height: 2px !important;
  }
@@ -33,6 +33,14 @@
  #main{
    margin-top: 3rem;
  }
+.card-img-top{
+  min-height: 11rem;
+  max-height: 11rem;
+}
+
+
+
+
 .facerecognition{
   text-align: center;
 }
@@ -43,6 +51,9 @@
 #my_camera{
    margin: 0 auto;
 }
+
+
+
 
 #link{
   padding-left: 10rem;
