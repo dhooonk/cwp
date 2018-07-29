@@ -1,34 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-9">
-      <p id="notice"><%= notice %></p>
-
+      <p id="notice"></p>
+<!-- 위에 코드 뭐지? <%= notice %> 이거는 뭥미 -->
     <h4>공지사항</h4>
 
     <hr id="hr">
-
-    <form>
-      <div class="form-row align-items-center">
-        <div class="col-2">
-          <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-            <option selected>선택</option>
-            <option value="1">제목</option>
-            <option value="2">글쓴이</option>
-            <option value="3">글내용</option>
-          </select>
-        </div>
-        <div class="col-9">
-          <input class="form-control" type="text" placeholder="검색">
-        </div>
-        <div class="col-1">
-          <button type="submit" class="btn btn-warning">검색</button>
-        </div>
-      </div>
-    </form>
-<br />
-<br />
-
     <table class="table">
       <thead>
         <tr>
@@ -42,12 +19,28 @@
         </tr>
       </thead>
 
+      <% if @find.present? %>
+      <tbody>
+        <% @find.each do |each_find| %>
+          <tr>
+            <td><%= each_find.id %></td>
+            <td><%= each_find.title %></td>
+            <td><%= each_find.user.name %></td>
+            <td><%= each_find.created_at.strftime("%Y-%m-%d") %></td>
+            <td><%= link_to '보기', each_find %></td>
+            <td><%= link_to '수정', edit_notice_path(each_find) %></td>
+            <td><%= link_to '삭제', each_find, method: :delete, data: { confirm: '정말로 게시물을 삭제하시겠습니까?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+
+      <%else %>
       <tbody>
         <% @notices.each do |notice| %>
           <tr>
             <td><%= notice.id %></td>
             <td><%= notice.title %></td>
-            <td>관리자</td>
+            <td><%= notice.user.name %></td>
             <td><%= notice.created_at.strftime("%Y-%m-%d") %></td>
             <td><%= link_to '보기', notice %></td>
             <td><%= link_to '수정', edit_notice_path(notice) %></td>
@@ -55,11 +48,37 @@
           </tr>
         <% end %>
       </tbody>
+      <% end %>
     </table>
 
     <br>
 
-    <%= link_to '새로운 프로그램 작성', new_notice_path %>
+
+    <form action="/notices" method="get" data-reomote= "ture">
+      <div class="form-row align-items-center">
+        <div class="col-2">
+          <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="type">
+            <option selected>선택</option>
+            <option value="title">제목</option>
+            <option value="user">글쓴이</option>
+            <option value="content">글내용</option>
+          </select>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" placeholder="검색" name="search">
+        </div>
+        <div class="col-1">
+          <button type="submit" class="btn btn-warning">검색</button>
+        </div>
+      </div>
+    </form>
+<br />
+<br />
+
+
+
+    <%= link_to '새로운 공지사항 작성', new_notice_path %>
   </div>
 
   <div class="col-3">
