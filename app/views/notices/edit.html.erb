@@ -1,6 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-9">
 
-<h1>공지 수정</h1>
-<%= form_with model: @notice do |form| %>
+      <h4>공지사항 수정</h4>
+
+      <hr id="hr">
+
+      <form class="form-group" action="/notice/<%=@notice.id%>" method="patch" data-remote="true">
+        <input class ="form-control" type="text" name="title" placeholder="제목">
+        <textarea class ="form-control" type="text" name="content" placeholder="내용" rows="10"></textarea>
+        <button type="submit" class="btn btn-warning mb-2">수정완료</button>
+      </form>
+
+      <%= link_to 'Back', notices_path %>
+    </div>
+  <div class="col-3">
+    <div class="todayProgram">
+      <div class="todayProgramTitle">
+        <span class="align-middle"><h4>오늘의 프로그램</h4></span>
+      </div>
+
+      <div class="todayProgramContent">
+        <% @programs.each do |program| %>
+          <div class="card">
+            <% if program.name=="요가" %>
+              <img class="card-img-top" src="\assets/yoga.jpg" alt="Card image cap">
+            <% elsif program.name=="바둑" %>
+              <img class="card-img-top" src="\assets/go.PNG" alt="Card image cap">
+            <% elsif program.name=="명상" %>
+              <img class="card-img-top" src="\assets/meditation.PNG" alt="Card image cap">
+            <% elsif program.name=="점심밥" %>
+              <img class="card-img-top" src="\assets/dining.PNG" alt="Card image cap">
+            <% elsif program.name=="프로그래밍" %>
+              <img class="card-img-top" src="\assets/programming.PNG" alt="Card image cap">
+            <% else %>
+              <img class="card-img-top" src="\" alt="Card image cap">
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%=program.name%></h5>
+              <p class="card-text">
+              <strong>진행요일</strong> : <%=program.doingDay%><br />
+              <strong>진행시간</strong> : <%=program.doingTime%>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  </div>
+  </div>
+</div>
+
+<!-- <%= form_with model: @notice do |form| %>
 <div class="field">
   <%= form.label :title %>
   <%= form.text_field :title%>
@@ -14,7 +66,7 @@
 <div class="actions">
   <%= form.submit %>
 </div>
-<% end %>
+<% end %> -->
 
 <%= link_to 'Show', @notice %> |
 <%= link_to 'Back', notices_path %>

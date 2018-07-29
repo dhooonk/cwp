@@ -19,10 +19,28 @@
    font-family: 'Nanum Barun Gothic';
  }
 
-
+ #hr {
+    background-color: #f69129 !important;
+    height: 2px !important;
+ }
+.todayProgramTitle{
+  background-color: #3d3d3d;
+  height:6rem;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
  #main{
    margin-top: 3rem;
  }
+.card-img-top{
+  min-height: 11rem;
+  max-height: 11rem;
+}
+
+
+
+
 .facerecognition{
   text-align: center;
 }
@@ -33,6 +51,8 @@
 #my_camera{
    margin: 0 auto;
 }
+
+
 
 
 #link{

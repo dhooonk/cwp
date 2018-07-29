@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20180725074852) do
   create_table "customers", force: :cascade do |t|
     t.string "custom_name"
     t.integer "phone"
-    t.integer "etc"
+    t.string "etc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,8 +38,11 @@ ActiveRecord::Schema.define(version: 20180725074852) do
   create_table "notices", force: :cascade do |t|
     t.string "title"
     t.string "content"
+    t.string "user_name"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notices_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|

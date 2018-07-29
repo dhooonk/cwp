@@ -1,25 +1,57 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
+  <div class="row">
+    <div class="col-9">
 
-    <div class="container">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>제목</th>
-            <th>내용</th>
-          </tr>
-        </thead>
+      <h4>공지사항</h4>
 
-          <tbody>
-              <tr>
-                <td><%= @notice.title %></td>
-                <td><%= @notice.content %></td>
-              </tr>
-          </tbody>
-        </table>
-    </div>
+      <hr id="hr">
+
+      <h3><%= @notice.title %></h3>
+      <hr />
+      담당자 <%= @notice.user.name %> | <%= @notice.created_at %> |
+      <hr />
+      <%= @notice.content %>
+      <hr />
 
     <%= link_to '수정', edit_notice_path(@notice) %> |
     <%= link_to '뒤로', notices_path %>
 
+    </div>
+  <div class="col-3">
+    <div class="todayProgram">
+      <div class="todayProgramTitle">
+        <span class="align-middle"><h4>오늘의 프로그램</h4></span>
+      </div>
+
+      <div class="todayProgramContent">
+        <% @programs.each do |program| %>
+          <div class="card">
+            <% if program.name=="요가" %>
+              <img class="card-img-top" src="\assets/yoga.jpg" alt="Card image cap">
+            <% elsif program.name=="바둑" %>
+              <img class="card-img-top" src="\assets/go.PNG" alt="Card image cap">
+            <% elsif program.name=="명상" %>
+              <img class="card-img-top" src="\assets/meditation.PNG" alt="Card image cap">
+            <% elsif program.name=="점심밥" %>
+              <img class="card-img-top" src="\assets/dining.PNG" alt="Card image cap">
+            <% elsif program.name=="프로그래밍" %>
+              <img class="card-img-top" src="\assets/programming.PNG" alt="Card image cap">
+            <% else %>
+              <img class="card-img-top" src="\" alt="Card image cap">
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%=program.name%></h5>
+              <p class="card-text">
+              <strong>진행요일</strong> : <%=program.doingDay%><br />
+              <strong>진행시간</strong> : <%=program.doingTime%>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  </div>
+  </div>
 </div>

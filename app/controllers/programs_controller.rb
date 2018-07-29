@@ -37,7 +37,9 @@ class ProgramsController < ApplicationController
       @program.endDay=params[:programEndDay]
       @program.doingDay=params[:programDoingDay]
       @program.doingTime=params[:programDoingTime]
-      @program.update
+      @program.update_attributes(program_params)
+
+      redirect_to programs_path
     end
 
     def destroy
@@ -45,5 +47,9 @@ class ProgramsController < ApplicationController
       @program.destroy
 
       redirect_to programs_path
+    end
+
+    def program_params
+      params.require(:program).permit(:programName, :programStartDay, :programEndDay, :programDoingDay, :programDoingTime)
     end
 end

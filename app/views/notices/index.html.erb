@@ -1,32 +1,120 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <p id="notice"><%= notice %></p>
+<!-- 위에 코드 뭐지? <%= notice %> 이거는 뭥미 -->
+    <h4>공지사항</h4>
 
-<h1>공지사항</h1>
+    <hr id="hr">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>작성시간</th>
+          <th>보기</th>
+          <th>수정</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>번호</th>
-      <th>제목</th>
-      <th>보기</th>
-      <th>수정</th>
-      <th>삭제</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <% if @find.present? %>
+      <tbody>
+        <% @find.each do |each_find| %>
+          <tr>
+            <td><%= each_find.id %></td>
+            <td><%= each_find.title %></td>
+            <td><%= each_find.user.name %></td>
+            <td><%= each_find.created_at.strftime("%Y-%m-%d") %></td>
+            <td><%= link_to '보기', each_find %></td>
+            <td><%= link_to '수정', edit_notice_path(each_find) %></td>
+            <td><%= link_to '삭제', each_find, method: :delete, data: { confirm: '정말로 게시물을 삭제하시겠습니까?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
 
-  <tbody>
-    <% @notices.each do |notice| %>
-      <tr>
-        <td><%= notice.id %></td>
-        <td><%= notice.title %></td>
-        <td><%= link_to '보기', notice %></td>
-        <td><%= link_to '수정', edit_notice_path(notice) %></td>
-        <td><%= link_to '삭제', notice, method: :delete, data: { confirm: '정말로 게시물을 삭제하시겠습니까?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%else %>
+      <tbody>
+        <% @notices.each do |notice| %>
+          <tr>
+            <td><%= notice.id %></td>
+            <td><%= notice.title %></td>
+            <td><%= notice.user.name %></td>
+            <td><%= notice.created_at.strftime("%Y-%m-%d") %></td>
+            <td><%= link_to '보기', notice %></td>
+            <td><%= link_to '수정', edit_notice_path(notice) %></td>
+            <td><%= link_to '삭제', notice, method: :delete, data: { confirm: '정말로 게시물을 삭제하시겠습니까?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      <% end %>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to '새로운 프로그램 작성', new_notice_path %>
+
+    <form action="/notices" method="get" data-reomote= "ture">
+      <div class="form-row align-items-center">
+        <div class="col-2">
+          <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="type">
+            <option selected>선택</option>
+            <option value="title">제목</option>
+            <option value="user">글쓴이</option>
+            <option value="content">글내용</option>
+          </select>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" placeholder="검색" name="search">
+        </div>
+        <div class="col-1">
+          <button type="submit" class="btn btn-warning">검색</button>
+        </div>
+      </div>
+    </form>
+<br />
+<br />
+
+
+
+    <%= link_to '새로운 공지사항 작성', new_notice_path %>
+  </div>
+
+  <div class="col-3">
+    <div class="todayProgram">
+      <div class="todayProgramTitle">
+        <span class="align-middle"><h4>오늘의 프로그램</h4></span>
+      </div>
+
+      <div class="todayProgramContent">
+        <% @programs.each do |program| %>
+          <div class="card">
+            <% if program.name=="요가" %>
+              <img class="card-img-top" src="\assets/yoga.jpg" alt="Card image cap">
+            <% elsif program.name=="바둑" %>
+              <img class="card-img-top" src="\assets/go.PNG" alt="Card image cap">
+            <% elsif program.name=="명상" %>
+              <img class="card-img-top" src="\assets/meditation.PNG" alt="Card image cap">
+            <% elsif program.name=="점심밥" %>
+              <img class="card-img-top" src="\assets/dining.PNG" alt="Card image cap">
+            <% elsif program.name=="프로그래밍" %>
+              <img class="card-img-top" src="\assets/programming.PNG" alt="Card image cap">
+            <% else %>
+              <img class="card-img-top" src="\" alt="Card image cap">
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%=program.name%></h5>
+              <p class="card-text">
+              <strong>진행요일</strong> : <%=program.doingDay%><br />
+              <strong>진행시간</strong> : <%=program.doingTime%>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  </div>
+  </div>
+</div>
