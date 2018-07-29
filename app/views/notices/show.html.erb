@@ -9,7 +9,7 @@
 
       <h3><%= @notice.title %></h3>
       <hr />
-      담당자 | <%= @notice.created_at %> |
+      담당자 <%= @notice.user.name %> | <%= @notice.created_at %> |
       <hr />
       <%= @notice.content %>
       <hr />

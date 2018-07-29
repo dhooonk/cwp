@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 #get '/mypage/index/:current_user_id' => 'mypage#index', :as => :mypage_index
   #get '/members/show/:id', to: 'members#show'
   #get '/members', to: 'index#members'
+  
   get '/attendance', to: 'index#attendance'
   post '/attendance', to: 'index#attendance'
 
