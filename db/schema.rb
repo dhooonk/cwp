@@ -56,10 +56,14 @@ ActiveRecord::Schema.define(version: 20180725074852) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "fee"
+    t.string "registerPeople"
+    t.string "dutyPeople"
     t.string "startDay"
     t.string "endDay"
     t.string "doingDay"
     t.string "doingTime"
+    t.string "place"
   end
 
   create_table "users", force: :cascade do |t|

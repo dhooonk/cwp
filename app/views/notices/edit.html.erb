@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-9">
+    <div class="col-12">
 
       <h4>공지사항 수정</h4>
 
@@ -9,12 +9,13 @@
       <form class="form-group" action="/notice/<%=@notice.id%>" method="patch" data-remote="true">
         <input class ="form-control" type="text" name="title" placeholder="제목">
         <textarea class ="form-control" type="text" name="content" placeholder="내용" rows="10"></textarea>
-        <button type="submit" class="btn btn-warning mb-2">수정완료</button>
+        <button type="submit" class="btn btn-success mb-2">수정완료</button>
       </form>
 
-      <%= link_to 'Back', notices_path %>
+      <%= link_to 'Back', notices_path, class: "btn btn-success" %>
+      <%= link_to 'Show', @notice , class: "btn btn-success"%>
     </div>
-  <div class="col-3">
+  <!-- <div class="col-12">
     <div class="todayProgram">
       <div class="todayProgramTitle">
         <span class="align-middle"><h4>오늘의 프로그램</h4></span>
@@ -47,8 +48,8 @@
         <% end %>
       </div>
   </div>
+  </div> -->
 
-  </div>
   </div>
 </div>
 
@@ -67,6 +68,3 @@
   <%= form.submit %>
 </div>
 <% end %> -->
-
-<%= link_to 'Show', @notice %> |
-<%= link_to 'Back', notices_path %>

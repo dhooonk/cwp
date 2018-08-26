@@ -13,14 +13,33 @@
  *= require_tree .
  *= require_self
  */
- @import url(http://cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css);
+ @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 
  *{
-   font-family: 'Nanum Barun Gothic';
+   font-family: 'Noto Sans KR', sans-serif;
+ }
+
+ .main{
+   margin-top: 3rem;
+   margin-left: 15rem;
+   margin-right: 15rem;
+   margin-bottom: 10rem;
+   border-width: 1px;
+ }
+
+ /* .mainHeader{
+   text-align: center;
+ } 왜 안되지?*/
+ .mainTable{
+   border-style: solid;
+   border-width: 1px;
+   border-color: #ddd;
+   margin: 0 10px 10px 0;
  }
 
  #hr {
-    background-color: #f69129 !important;
+    background-color: #ddd !important;
     height: 2px !important;
  }
 .todayProgramTitle{
@@ -30,16 +49,50 @@
   text-align: center;
   vertical-align: middle;
 }
- #main{
-   margin-top: 3rem;
- }
+
 .card-img-top{
   min-height: 11rem;
   max-height: 11rem;
 }
+.mainbutton{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.mainButton1{
+  text-align: center;
+  padding-top: 35%;
+  height: 180px;
+  width: 100%;
+  background:#50b849;
+  color: white;
+  font-weight: 500;
+}
+.mainButton2{
+  text-align: center;
+  padding-top: 35%;
+  height: 180px;
+  width: 100%;
+  background:#0086d1;
+  color: white;
+  font-weight: 500;
+}
+.stit{
+  content: '';
+  display: block;
+  width: 20px;
+  height: 3px;
+  background-color: #28a745;
+  margin: 10px auto;
+  margin-top: 22px;
+}
 
-
-
+.footer{
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
 
 .facerecognition{
   text-align: center;

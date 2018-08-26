@@ -19,6 +19,10 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+<!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
     <!-- <script src="webcam.js"></script> -->
     <style>
     li {
@@ -78,7 +82,42 @@
 
     <%= yield %>
 
+    <div class="footer">
+      <div class="dropdown-divider"></div>
+      <div class ="container">
+      <div class="row">
+    		<div class="col-md-9 col-sm-12">
+    			<div class="address">
+    				<p><strong>주소</strong> : 04506서울특별시 중구 서소문로 6길 16(중림동)
+              <span>/</span>  <strong>전화</strong> : 02-362-3345~51
+              <span>/</span>  <strong>팩스</strong> : 02-362-3352
+              <span>/</span>  <strong>이메일</strong> : <a href="mailto:jlcwc@hanmail.net" style="transition: all 0.1s linear;">jlcwc@hanmail.net</a></p>
+    				<p>Copyright © KHUzy All right reserved.
+    			</div>
+    		</div>
 
+    		<!-- 검색 -->
+    		<div class="col-md-3 col-sm-12" id="link">
+          <div class="btn-group dropup">
+            <button type="button" class="btn btn-secondary dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              주요사이트
+            </button>
+
+            <div class="dropdown-menu" >
+              <a class="dropdown-item" href="http://www.jongno.go.kr">종로구청</a>
+              <a class="dropdown-item" href="http://www.kaswcs.or.kr">한국노인종합복지관협회</a>
+              <a class="dropdown-item" href="http://www.saswc.or.kr">서울시노인종합복지관협회</a>
+              <a class="dropdown-item" href="http://www.welfare.seoul.kr">서울복지재단</a>
+              <a class="dropdown-item" href="http://www.mohw.go.kr">보건복지부</a>
+              <a class="dropdown-item" href="http://www.buddhism.or.kr">대한불교 조계사</a>
+              <a class="dropdown-item" href="http://www.jabinanum.or.kr">사회복지법인 대한불교조계종사회복지재단</a>
+              <a class="dropdown-item" href="http://www.seoul.go.kr">서울시</a>
+            </div>
+          </div>
+    		</div>
+      </div>
+      </div>
+    </div>
   </body>
 
 </html>
