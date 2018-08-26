@@ -22,26 +22,28 @@
 </div>
 
 
-<div class="container" id="main">
+<div class="main">
   <div class="row">
-    <div class="col-sm-4">
-      <table class="table">
-        <h4>공지사항</h4>
-        <tbody>
-          <% @notices.each do |notice| %>
-          <tr>
-            <th scope="row"><%=notice.id%></th>
-            <td><%=notice.title%></td>
-            <td>관리자</td>
-            <td><%=notice.created_at.strftime("%Y-%m-%d")%></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="col-sm-4 mainTable">
+        <table class="table">
+          <div class"mainHeader" style="text-align: center;"><h4>공지사항</h4></div>
+          <div class="stit"></div>
+          <tbody>
+            <% @notices.each do |notice| %>
+            <tr>
+              <th scope="row"><%=notice.id%></th>
+              <td><%=notice.title%></td>
+              <td>관리자</td>
+              <td><%=notice.created_at.strftime("%Y-%m-%d")%></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
     </div>
 
-    <div class="col-sm-4">
-      <h4>오늘의 프로그램</h4>
+    <div class="col-sm-4 mainTable">
+      <div class"mainHeader" style="text-align: center;"><h4>오늘의 프로그램</h4></div>
+      <div class="stit" ></div>
       <div class="programSlide">
         <% @programs.each do |program| %>
         <div class="card">
@@ -88,46 +90,26 @@
           <% end %> -->
     </div>
 
-    <div class="col-sm-4">
-      <button type="button" class="btn btn-warning btn-lg btn-block"><%=Time.now.month %>월 프로그램 안내</button>
-      <button type="button" class="btn btn-warning btn-lg btn-block">중림사회복지센터</button>
-    </div>
-  </div>
-</div>
+    <div class="col-sm-3">
+        <div class="row">
 
-<div class="footer">
-  <div class="dropdown-divider"></div>
-  <div class ="container">
-  <div class="row">
-		<div class="col-md-9 col-sm-12">
-			<div class="address">
-				<p><strong>주소</strong> : 04506서울특별시 중구 서소문로 6길 16(중림동)
-          <span>/</span>  <strong>전화</strong> : 02-362-3345~51
-          <span>/</span>  <strong>팩스</strong> : 02-362-3352
-          <span>/</span>  <strong>이메일</strong> : <a href="mailto:jlcwc@hanmail.net" style="transition: all 0.1s linear;">jlcwc@hanmail.net</a></p>
-				<p>Copyright © KHUzy All right reserved.
-			</div>
-		</div>
-
-		<!-- 검색 -->
-		<div class="col-md-3 col-sm-12" id="link">
-      <div class="btn-group dropup">
-        <button type="button" class="btn btn-secondary dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          주요사이트
-        </button>
-
-        <div class="dropdown-menu" >
-          <a class="dropdown-item" href="http://www.jongno.go.kr">종로구청</a>
-          <a class="dropdown-item" href="http://www.kaswcs.or.kr">한국노인종합복지관협회</a>
-          <a class="dropdown-item" href="http://www.saswc.or.kr">서울시노인종합복지관협회</a>
-          <a class="dropdown-item" href="http://www.welfare.seoul.kr">서울복지재단</a>
-          <a class="dropdown-item" href="http://www.mohw.go.kr">보건복지부</a>
-          <a class="dropdown-item" href="http://www.buddhism.or.kr">대한불교 조계사</a>
-          <a class="dropdown-item" href="http://www.jabinanum.or.kr">사회복지법인 대한불교조계종사회복지재단</a>
-          <a class="dropdown-item" href="http://www.seoul.go.kr">서울시</a>
+              <div class="col-sm-6 mainbutton">
+                <div class="mainButton1"><i class="far fa-id-badge fa-3x"></i><br /> 출석체크</button>
+                </div>
+              </div>
+              <div class="col-sm-6 mainbutton">
+                <div class="mainButton2"><i class="far fa-building fa-3x"></i><br /> 센터이용</button>
+                </div>
+              </div>
+              <div class="col-sm-6 mainbutton">
+                <div class="mainButton2"><i class="fas fa-chalkboard-teacher fa-3x"></i><br /> <%=Time.now.month%>월 프로그램</button>
+                </div>
+              </div>
+              <div class="col-sm-6 mainbutton">
+                <div class="mainButton1"><i class="fas fa-home fa-3x"></i><br /> 중림사회복지관</button>
+                </div>
+              </div>
         </div>
       </div>
-		</div>
+    </div>
   </div>
-  </div>
-</div>

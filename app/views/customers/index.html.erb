@@ -1,29 +1,38 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">번호</th>
-      <th scope="col">이름</th>
-      <th scope="col">연락처</th>
-      <th scope="col">비고</th>
-      <th scope="col">보기</th>
-      <th scope="col">수정</th>
-      <th scope="col">삭제</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @custom.each do |customer| %>
-        <tr>
-              <th scope="row"> <%= customer.id %></th>
-              <td><%= customer.custom_name %></td>
-              <td><%= customer.phone %></td>
-              <td><%= customer.etc %></td>
-              <td><%= link_to '출석/상태', customer %></td>
-              <td><%= link_to '수정', edit_customer_path(customer) %></td>
-              <td><%= link_to '삭제', customer, method: :delete, data: {confirm: '정말로 삭제하시겠습니까'} %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <h4>복지관 회원</h4>
+  <p>
+    현재 가입되어있는 복지관 회원을 확인할 수 있습니다.
+  </p>
+      <hr id="hr">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">번호</th>
+        <th scope="col">이름</th>
+        <th scope="col">연락처</th>
+        <th scope="col">비고</th>
+        <th scope="col">수정</th>
+        <th scope="col">삭제</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @custom.each do |customer| %>
+      <tr>
+        <th scope="row"> <%= customer.id %></th>
+        <td><%= link_to "#{customer.custom_name}", customer %></td>
+        <td>0<%= customer.phone %></td>
+        <td><%= customer.etc %></td>
+        <td><%= link_to '수정', edit_customer_path(customer) %></td>
+        <td><%= link_to '삭제', customer, method: :delete, data: {confirm: '정말로 삭제하시겠습니까'} %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 
-<%= link_to '새로운 프로그램 작성', new_customer_path %>
+  <%= link_to '새로운 회원 작성', new_customer_path, class: "btn btn-success" %>
+
+</div>

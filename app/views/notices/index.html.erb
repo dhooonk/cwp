@@ -1,10 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-9">
+    <div class="col-12">
       <p id="notice"></p>
-<!-- 위에 코드 뭐지? <%= notice %> 이거는 뭥미 -->
-    <h4>공지사항</h4>
 
+    <h4>공지사항</h4>
+    
+
+<p>회원기관 외의  외부지원 사업 및 유관단체의 주요 공지사항, 홍보사항 등을 공유하는 공간입니다.</p>
     <hr id="hr">
     <table class="table">
       <thead>
@@ -69,7 +71,7 @@
           <input class="form-control" type="text" placeholder="검색" name="search">
         </div>
         <div class="col-1">
-          <button type="submit" class="btn btn-warning">검색</button>
+          <button type="submit" class="btn btn-success">검색</button>
         </div>
       </div>
     </form>
@@ -78,10 +80,10 @@
 
 
 
-    <%= link_to '새로운 공지사항 작성', new_notice_path %>
+    <%= link_to '새로운 공지사항 작성', new_notice_path ,class: "btn btn-success"%>
   </div>
 
-  <div class="col-3">
+  <!-- <div class="col-3">
     <div class="todayProgram">
       <div class="todayProgramTitle">
         <span class="align-middle"><h4>오늘의 프로그램</h4></span>
@@ -115,6 +117,6 @@
       </div>
   </div>
 
-  </div>
+  </div> -->
   </div>
 </div>

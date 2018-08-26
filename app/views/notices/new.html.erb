@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-9">
+    <div class="col-12">
 
       <h4>공지사항 작성</h4>
 
@@ -9,14 +9,14 @@
       <form class="form-group" action="/notices" method="post" data-remote="true">
         <input class ="form-control" type="text" name="title" placeholder="제목">
         <textarea class ="form-control" type="text" name="content" placeholder="내용" rows="10"></textarea>
-        <button type="submit" class="btn btn-warning mb-2">작성완료</button>
+        <button type="submit" class="btn btn-success mb-2">작성완료</button>
       </form>
 
-      <%= link_to 'Back', notices_path %>
+      <%= link_to 'Back', notices_path, class: "btn btn-success" %>
     </div>
 
 
-  <div class="col-3">
+  <!-- <div class="col-3">
     <div class="todayProgram">
       <div class="todayProgramTitle">
         <span class="align-middle"><h4>오늘의 프로그램</h4></span>
@@ -50,6 +50,6 @@
       </div>
   </div>
 
-  </div>
+  </div> -->
   </div>
 </div>
